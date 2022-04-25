@@ -1,0 +1,37 @@
+*{
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+#title{
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.buttons{
+  padding: 10px;
+  width: 400px;
+  height: 400px;
+  border: 2px solid black;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, fr);
+  gap: 10px;
+}
+
+.boton{
+  justify-self: center;
+  align-self: center;
+  width: 40px;
+  height: 40px;
+  background-color: antiquewhite;
+  border: 1px solid black;
+  text-align: center;
+  font-size: 2em;
+}
