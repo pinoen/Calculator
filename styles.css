@@ -2,6 +2,7 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  font-family: 'Courier New', Courier, monospace;
 }
 #title{
   text-align: center;
@@ -88,4 +89,25 @@
 .operator:hover{
   background-color: white;
   color: black;
+}
+
+footer p{
+  text-align: center;
+  margin-top: 10px;
+  color: whitesmoke;
+  padding: 30px;
+  font-size: small;
+}
+#pie-pagina{
+  background: url(bg.jpg);
+  height: 100%;
+  width: 100%;
+}
+a{
+  text-decoration: none;
+  color: white;
+}
+a:hover{
+  cursor:pointer;
+  font-weight: bolder;
 }
