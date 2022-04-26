@@ -27,6 +27,7 @@ let equal = document.querySelector('.equal');
 let numberBtn = document.querySelectorAll('.number');
 let operatorBtn = document.querySelectorAll('.operator');
 let clear = document.querySelector('#clear');
+let deleteBtn = document.querySelector('#delete');
 
 window.addEventListener('keydown', handleKeys);
 
@@ -76,6 +77,12 @@ clear.addEventListener('click', ()=>{
   preNum = '';
 })
 
+deleteBtn.addEventListener('click', handleDelete);
+function handleDelete(){
+  currNum = currNum.slice(0,-1);
+  currentDisplay.textContent = currNum;
+}
+
 function handleKeys(e){
   e.preventDefault();
   if(e.key >= 0 && e.key <= 9) handleNumber(e.key);
@@ -85,5 +92,5 @@ function handleKeys(e){
     preNum = Number(preNum);
     calculate(operator);
   }
-
+  if(e.key === 'Backspace') handleDelete();
 }
