@@ -63,10 +63,26 @@ equal.addEventListener('click', ()=>{
 })
 
 function calculate(operator){
-  if(operator === '/') displayTotal.textContent = operate(divide, preNum, currNum);
-  if(operator === '*') displayTotal.textContent = operate(multiply, preNum, currNum);
-  if(operator === '-') displayTotal.textContent = operate(subtract, preNum, currNum);
-  if(operator === '+') displayTotal.textContent = operate(add, preNum, currNum);
+  if(operator === '/') {
+    displayTotal.textContent = operate(divide, preNum, currNum);
+    result = operate(divide, preNum, currNum);
+    currNum = result;
+  }
+  if(operator === '*') {
+    displayTotal.textContent = operate(multiply, preNum, currNum);
+    result = operate(multiply, preNum, currNum);
+    currNum = result;
+  }
+  if(operator === '-') {
+    displayTotal.textContent = operate(subtract, preNum, currNum);
+    result = operate(subtract, preNum, currNum);
+    currNum = result;
+  }
+  if(operator === '+') {
+    displayTotal.textContent = operate(add, preNum, currNum);
+    result = operate(add, preNum, currNum);
+    currNum = result;
+  }
 }
 
 clear.addEventListener('click', ()=>{
