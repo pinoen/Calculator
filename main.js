@@ -1,20 +1,15 @@
 function add(a,b){
   return a+b;
 }
-
 function subtract(a,b){
   return a-b;
 }
-
 function multiply(a,b){
   return a*b;
 }
-
 function divide(a,b){
   return a/b;
 }
-
-
 function operate(operator, a, b){
   return operator(a,b);
 }
@@ -29,10 +24,11 @@ let previousDisplay = document.querySelector('#display2');
 let displayTotal = document.querySelector('#displayTotal');
 
 let equal = document.querySelector('.equal');
-let decimal = document.querySelector('.decimal');
 let numberBtn = document.querySelectorAll('.number');
 let operatorBtn = document.querySelectorAll('.operator');
 let clear = document.querySelector('#clear');
+
+window.addEventListener('keydown', handleKeys);
 
 
 numberBtn.forEach(btn => {
@@ -61,11 +57,16 @@ function handleOperator(op){
 equal.addEventListener('click', ()=>{
   currNum = Number(currNum);
   preNum = Number(preNum);
+  calculate(operator);
+  
+})
+
+function calculate(operator){
   if(operator === '/') displayTotal.textContent = operate(divide, preNum, currNum);
   if(operator === '*') displayTotal.textContent = operate(multiply, preNum, currNum);
   if(operator === '-') displayTotal.textContent = operate(subtract, preNum, currNum);
   if(operator === '+') displayTotal.textContent = operate(add, preNum, currNum);
-})
+}
 
 clear.addEventListener('click', ()=>{
   currentDisplay.textContent = '';
@@ -74,3 +75,15 @@ clear.addEventListener('click', ()=>{
   currNum = '';
   preNum = '';
 })
+
+function handleKeys(e){
+  e.preventDefault();
+  if(e.key >= 0 && e.key <= 9) handleNumber(e.key);
+  if(e.key === '/' || e.key === '*' || e.key === '-' || e.key === '+') handleOperator(e.key);
+  if(e.key === 'Enter' || e.key === '=') {
+    currNum = Number(currNum);
+    preNum = Number(preNum);
+    calculate(operator);
+  }
+
+}
