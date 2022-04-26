@@ -93,4 +93,5 @@ function handleKeys(e){
     calculate(operator);
   }
   if(e.key === 'Backspace') handleDelete();
+  if(e.key === '.') handleNumber(e.key);
 }
